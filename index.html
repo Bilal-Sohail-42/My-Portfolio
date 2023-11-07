@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8d4c8b8fb7.js" crossorigin="anonymous"></script>
+    <title>My-Portfolio</title>
+         <!-- <link rel="stylesheet" href=""> -->
+         <!-- <script src=""></script> -->
+    <style> 
+        * {
+            margin: 0;
+            padding: 0;
+            /* In mobile view get rid of hilighted color like blue */
+            -WebKit-tap-highlight-color: transparent;
+            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* In mobile view get rid of hilighted color like blue */
+        /* *{
+            -WebKit-tap-highlight-color: transparent;
+
+            } */
+
+        /* In mobile view get rid of hilighted color like blue */
+        input,
+        textarea,
+        button,
+        select,
+        a {
+            -WebKit-tap-highlight-color: transparent;
+        }
+
+        /* In mobile view get rid of hilighted color like blue */
+        a:focus,
+        a:visited,
+        a:active {
+            outline: none;
+        }
+
+
+        :root {
+            --text-color: rgb(255, 255, 255);
+            --background-color: rgb(0, 0, 0);
+        }
+
+        body {
+            /* padding-top: 75px; */
+            background-color: var(--background-color);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            margin: 0px 0px 10px 0px;
+            position: fixed;
+            width: 100%;
+            top: 2px;
+            left: 0px;
+            z-index: 5;
+            /* margin-bottom: 10px; */
+            /* border: 2px solid red; */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 5px auto;
+        }
+
+        .nav-left {
+            width: 500px;
+            margin: auto;
+            text-align: center;
+            color: var(--text-color);
+            background-color: rgb(15, 15, 15);
+            border-radius: 25px;
+            font-size: 26px;
+            text-shadow: 0px 0px 30px rgb(255, 255, 255);
+        }
+
+        .nav-right {
+            width: 460px;
+            margin: 8px auto;
+            background-color: rgb(15, 15, 15);
+            border-radius: 25px;
+            /* position: relative;
+            z-index: 5; */
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: white;
+            background-color: transparent;
+            display: inline-block;
+            padding: 6px 16px;
+
+            /* font-size: 1.8vmax; */
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 0px 0px 20px rgb(255, 255, 255);
+        }
+
+        ul li a:hover {
+            line-height: 1;
+            /* background-color: white; */
+            /* color: black; */
+            /* box-shadow: 0px 0px 20px rgb(255, 255, 255); */
+            /* border-radius: 7px; */
+            /* transition: 0.4s ease-in-out; */
+        }
+
+
+        .home-container {
+            /* border: 2px solid yellow; */
+            padding: 70px 0px;
+            height: auto;
+
+        }
+
+        .home {
+            /* border: 2px solid red; */
+            width: 88%;
+            height: 75vh;
+            margin: 26px auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap-reverse;
+            /* background: black; */
+        }
+
+        @media screen and (min-width: 700px) {
+            ul li a {
+                font-size: 1.8vmax;
+
+            }
+
+            .home {
+
+                border: 4px solid rgb(46, 46, 46);
+                border-radius: 12px;
+                box-shadow: 0 0 30px white;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .home{
+                padding-top: 60px;
+            }
+
+            ul li a:hover {
+                background-color: white;
+                color: black;
+                box-shadow: 0px 0px 20px rgb(255, 255, 255);
+                border-radius: 7px;
+                transition: 0.3s ease-in-out;
+                border: none;
+            }
+
+            .skills-box {
+
+                width: 290px;
+                height: 170px;
+                box-shadow: 8px 8px 10px rgb(165, 165, 165);
+                border-radius: 10px;
+                margin: 10px;
+                background-color: white;
+                user-select: none;
+                padding: 5px;
+                text-align: justify;
+                transition: all 1s ease-in-out;
+            }
+
+            .skills-box:hover {
+                transform: scale(1.5);
+            }
+
+
+        }
+
+        .left {
+            /* display: flex;
+            flex-direction: column; */
+            /* flex: 0 1 300px ; */
+            /* border: 2px solid red; */
+            text-align: center;
+            width: 400px;
+            height: 200px;
+            font-weight: bold;
+            font-size: 30px;
+            color: white;
+            /* position: relative; */
+            z-index: 4;
+            /* animation-name: sp-left;
+            animation-duration: 5s;
+            animation-timing-function: ease-in-out */
+        }
+
+        /* @keyframes sp-left {
+            0%{
+                transform: translateX(-200deg);
+            }
+            100%{
+                transform: translateX(200deg);
+
+            }
+            
+        } */
+
+        .right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 0 9 380px;
+            width: 400px;
+            height: 120px;
+            color: white;
+            /* border: 2px solid red; */
+        }
+
+        .mbilalpic {
+            max-width: 100%;
+            max-height: 100vh;
+            border-radius: 50%;
+            /* border: 2px solid red; */
+        }
+
+        .animated-box-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 99%;
+            height: 95vh;
+
+            margin: 20px auto;
+            position: absolute;
+            z-index: 1;
+            /* opacity: 0.5; */
+            /* border: 2px solid yellow; */
+            /* display: none; */
+            /* overflow-y: auto; */
+
+        }
+
+        .animated-box {
+
+            width: 180px;
+            height: 180px;
+            /* width: 20vmax;
+            height: 20vmax; */
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 2px solid white;
+            box-shadow: 0 0 40px white;
+            position: absolute;
+            text-shadow: 0 0 30px rgb(255, 255, 255);
+            color: white;
+            font-size: 20px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            animation-name: sp;
+            animation-duration: 10s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: infinite;
+            /* background-color: rgba(255, 255, 255,0.1); */
+            /* animation-delay: 4s;  */
+
+        }
+
+        .icons-container {
+            display: flex;
+            justify-content: flex-end;
+            /* border: 2px solid red; */
+            height: 230px;
+            /* width: 0px; */
+            margin: 20px auto;
+            /* position: absolute; */
+            z-index: 3;
+            /* display: none; */
+
+
+        }
+
+        .icons {
+            /* margin: 20px auto; */
+            position: absolute;
+            /* width: 140px; */
+            /* height: 100px; */
+            height: 300px;
+            /* border: 2px solid red; */
+            /* align-self: center; */
+
+            /* top: 20px; */
+
+            /* text-align: center; */
+            /* margin: 10px; */
+            /* border: 2px solid white; */
+        }
+
+        .icon {
+            margin: 10px;
+            /* border: 2px solid white; */
+        }
+
+        .icon a {
+            color: white;
+            text-decoration: none;
+            padding: 4px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 17px;
+
+        }
+
+        .icon a:hover {
+            background-color: white;
+            color: black;
+            box-shadow: 0px 0px 20px rgb(255, 255, 255);
+            /* border-radius: 7px; */
+            transition: 0.3s ease-in-out;
+            border: none;
+
+        }
+
+
+        @keyframes sp {
+
+            /* 0% {
+    Your starting styles here
+    opacity: 0;
+  }
+  100% {
+    Your ending styles here
+    opacity: 1;
+  } */
+            0% {
+                transform: translateY(0px);
+            }
+
+            25% {
+                transform: translateY(45px);
+            }
+
+            50% {
+                transform: translateX(45px);
+            }
+
+            75% {
+                transform: translateX(-10px);
+            }
+
+            100% {
+                transform: translateX(0px);
+            }
+        }
+
+        .btn {
+            margin-top: 10px;
+        }
+
+        input[type='button'] {
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 5px;
+            width: 100px;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+            transition: 0.5s ease-in-out;
+        }
+
+        input[type='button']:hover {
+            background-color: white;
+            color: black;
+            /* border: 2px solid black; */
+            box-shadow: 0px 0px 20px rgb(255, 255, 255);
+
+        }
+
+        /* START ABOUT PAGE */
+        .about-conatiner {
+            /* margin-top: 70PX; */
+            height: auto;
+            padding-top: 45px;
+            /* display: flex;
+            align-items: center; */
+            /* border: 2px solid; */
+        }
+
+        .about-home {
+             
+            width: 95%;
+            /* height: 100vh; */
+            font-size: 18px;
+            /* line-height: 1.4; */
+            padding: 5px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            align-items: center;
+            flex-wrap: wrap;
+            /* border: 2px solid; */
+            overflow-x: hidden;
+            /* Hide horizontal overflow */
+            overflow-y: auto;
+            /* Add vertical scroll if needed */
+            overflow: hidden;
+
+        }
+
+        .about-home-left {
+            padding: 30px 5px;
+            width: 590px;
+            height: 520px;
+            border: 2px solid rgb(255, 255, 255);
+            margin: 5px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px white;
+
+        }
+
+        
+        .about-home-right {
+            padding: 30px 5px;
+            width: 590px;
+            height: 520px;
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 12px;
+            margin: 5px;
+            text-align: center;
+            box-shadow: 0px 0px 10px white;
+
+        }
+
+        .skills-box {
+
+            width: 290px;
+            height: 170px;
+            box-shadow: 8px 8px 10px rgb(165, 165, 165);
+            border-radius: 10px;
+            margin: 10px;
+            background-color: white;
+            user-select: none;
+            padding: 5px;
+            text-align: justify;
+            transition: all 1s ease-in-out;
+        }
+
+        .skills-box:hover {
+            transform: scale(1.2);
+        }
+
+        .skills-box h3 {
+            margin: 0;
+            padding: 4px;
+            /* border: 2px solid; */
+            text-align: center;
+            background-color: rgb(0, 0, 0);
+            border-radius: 12px;
+            color: white;
+        }
+
+        .skills-box p {
+            margin: 3px;
+            /* border: 2px solid ; */
+        }
+
+        .skills-box h3 input[type='range'] {
+            /* color: red; */
+            width: 100%;
+
+            cursor: pointer;
+        }
+
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            height: auto;
+            flex-basis: 90%;
+            padding: 30px 10px;
+            /* width: 90%; */
+            margin: auto;
+            /* background-color: white; */
+            color: black;
+            border-radius: 25px;
+            /* box-shadow: 10px 10px 20px white; */
+        }
+
+        /* END ABOUT PAGE */
+        /* START PROJECT PAGE */
+        .projects-container {
+       
+            /* height: auto; */
+           /* border: 2px solid; */
+           padding-top: 60px;
+            text-align: center;
+        
+            /* margin: 0px; */
+
+        }
+
+        .projects-container p {
+            /* text-align: justify; */
+            padding: 10px;
+            /* border: 2px solid; */
+            /* margin: 0px; */
+            
+        }
+        
+        .projects-container h1 {
+            /* border: 2px solid; */
+            /* text-align: center; */
+            padding: 10px;
+            /* margin: 10px; */
+
+        }
+
+        .all-projects {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            /* border: 2px solid red; */
+            flex-wrap: wrap;
+            margin: 10px;
+            padding-top: 45px;
+
+        }
+
+        .projects-subcontainer {
+            /* display: flex;
+            flex-wrap: wrap; */
+            border: 2px solid;
+            width: 600px;
+            margin: 10px 5px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px white;
+
+        }
+        .projects-subcontainer p{
+            /* border: 2px solid; */
+            margin: 15px 5px;
+            text-align: center;
+        }
+        .projects-subcontainer h2{
+            /* border: 2px solid; */
+            margin: 15px 5px;
+            text-align: center;
+        }
+        .project-img img{
+            width: 90%;
+            height: 20%;
+            margin: 10px;
+            /* border: 2px solid red; */
+            border-radius: 12px;
+        }
+
+
+        .slider-container {
+    width: 70%;
+    height: 70vh;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    /* border: 2px solid white; */
+}
+
+.slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            /* border: 2px solid red; */
+        }
+
+        .slider a {
+            flex: 0 0 100%;
+            display: inline-block;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+.slide-outercontainer{
+     /* margin-top: 70PX; */
+     /* height: 60vh; */
+     /* overflow: auto; */
+            padding-top: 20px;
+            padding-bottom: 10px;
+            /* display: flex;
+            align-items: center; */
+            /* border: 2px solid; */
+            /* border: 2px solid white; */
+}
+
+       
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <h1 class="animated-sp">Sohail's Portfolio</h1>
+            </div>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#project">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="animated-box-container">
+        <div class="animated-box">
+            <h2>Front-End Developer</h2>
+        </div>
+
+    </div>
+
+    <div class="home-container" id="home">
+        <div class="home">
+            <div class="left">
+                Hi, I'm <div
+                    style="text-shadow: 0 0 20px rgb(173, 173, 173); line-height: 1.5; font-size: 34px; font-weight: bold;">
+                    Muhammad Bilal</div>
+                <div>and I am a passionate</div>
+                <span id="element"
+                    style="text-shadow: 0 0 20px rgb(173, 173, 173); font-size: 34px; line-height: 1.5; font-weight: bold;"></span>
+                <div class="btn">
+                     <a href="Bilal's cv.pdf">    <input type="button" value="Resume"></a>
+                    <a href="https://github.com/Bilal-Sohail-42"> <input type="button" value="Github"></a>
+
+                </div>
+            </div>
+            <div class="right">
+                <div>
+                    <img src="man-removebg-preview.png" alt="" title="Muhammad Bilal" class="mbilalpic">
+                </div>
+                <div class="icons-container">
+
+                    <div class="icons">
+                        <div class="facebook  icon"><a
+                                href="https://www.facebook.com/bilal.sohail.505?mibextid=ZbWKwL"><i 
+                                    class="fa fa-facebook-square"></i> &nbsp;Facebook</a></div>
+                        <div class="github  icon"><a href="https://github.com/Bilal-Sohail-42"><i
+                                    class="fa fa-github"></i> &nbsp;Github</a></div>
+                        <div class="linkdin icon"><a
+                                href="https://www.linkedin.com/in/muhammad-bilal-front-end-passionate-developer/"><i
+                                    class="fa fa-linkedin-square"></i> &nbsp;Linkdin</a></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION START HERE -->
+    <div class="about-conatiner" id="about">
+        <div class="about-home">
+            <div class="about-home-left"> <br>
+                <h1>About Me!</h1><br>
+                <h2>Software Engineer | Front-End Development Specialist</h2>
+                <p>Hello! I'm Muhammad Bilal, a dedicated and passionate software engineer with a focus on front-end
+                    development. I have a strong command of various web technologies, including HTML, CSS, Tailwind CSS,
+                    and JavaScript. With a background in software engineering, I bring a wealth of knowledge and
+                    experience to create engaging and user-friendly web applications.</p>
+                <br><br>
+                <h2>My Approach</h2>
+                <p>I believe in the power of collaboration and communication. Understanding your project's goals and
+                    your target audience is essential to me. This knowledge helps me design and develop websites that
+                    not only meet your technical requirements but also resonate with your users.</p>
+            </div>
+            <div class="about-home-right">
+
+                <ul>
+                    <li>
+                        <h3>HTML:</h3>
+                        <p>I have a strong command of HTML, the backbone of web development. I use it to structure web
+                            content and create a solid foundation for every project.</p>
+
+                    </li> <br>
+                    <li>
+                        <h3>CSS:</h3>
+                        <p> Styling is where I shine. Cascading Style Sheets (CSS) allow me to bring life to web pages,
+                            ensuring they not only look great but also offer a seamless user experience.</p>
+                    </li> <br>
+                    <li>
+                        <h3>TAILWIND CSS:</h3>
+                        <p> I'm proficient in using Tailwind CSS, a utility-first CSS framework that streamlines the
+                            styling process, making it efficient and consistent.</p>
+                    </li> <br>
+                    <li>
+                        <h3>JAVA-SCRIPT:</h3>
+                        <p>My proficiency in JavaScript allows me to add interactivity and functionality to websites. I
+                            love solving problems and creating dynamic user interfaces.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h1 style="text-align: center; padding: 20px 0px;">My Skills</h1>
+    <div class="about-conatiner skills">
+        <!-- <div></div> -->
+
+        <div class="skills-box">
+            <h3>HTML: 80% <input type="range" value="80"></h3>
+            <p>I have a strong command of HTML, the backbone of web development. I use it to structure web
+                content and create a solid foundation for every project.</p>
+        </div>
+
+
+        <div class="skills-box">
+            <h3>CSS: 70% <input type="range" value="70"></h3>
+            <p> Styling is where I shine. Cascading Style Sheets (CSS) allow me to bring life to web pages,
+                ensuring they not only look great but also offer a seamless user experience.</p>
+        </div>
+
+
+        <div class="skills-box">
+            <h3>TAILWIND-CSS: 70% <input type="range" value="70"></h3>
+            <p> I'm proficient in using Tailwind CSS, a utility-first CSS framework that streamlines the
+                styling process, making it efficient and consistent.</p>
+        </div>
+
+
+        <div class="skills-box">
+            <h3>JAVA-SCRIPT : 60% <input type="range" value="60"></h3>
+            <p>My proficiency in JavaScript allows me to add interactivity and functionality to websites. I
+                love solving problems and creating dynamic user interfaces.</p>
+        </div>
+
+        <div class="skills-box">
+            <h3>C - LANGUAGE: 60% <input type="range" value="60"></h3>
+            <p>Beyond web development, I has a basic background in programming with C and C++. This broader programming knowledge equips him to tackle a wide range of software challenges and develop efficient solutions..</p>
+        </div>
+
+        <div class="skills-box">
+            <h3>C++ LANGUAGE: 60% <input type="range" value="60"></h3>
+            <p>Beyond web development, I has a basic background in programming with C and C++. This broader programming knowledge equips him to tackle a wide range of software challenges and develop efficient solutions.</p>
+        </div>
+
+
+    </div>
+
+    <!-- END ABOUT SECTION -->
+
+    <!-- START PROJECT SECTION -->
+     
+       
+
+           <div class="projects-container" id="project">
+               <h1>My Portfolio</h1>
+               <p> Throughout my career, I've had the pleasure of working on various projects, ranging from small business
+                   websites
+                   to large-scale web applications. My portfolio showcases some of the exciting projects I've been a part of.
+               </p>
+               <!-- <div class="slide-outercontainer"> -->
+                <div class="slider-container">
+                    <div class="slider">
+                        <a href="https://bilal-sohail-42.github.io/Calculator/"><img src="project1.PNG" alt="Image 1"></a>
+                        <a href="12"><img src="project2.PNG" alt="Image 2" ></a>
+                        <a href="13"><img src="project3.PNG" alt="Image 3" ></a>
+                        <a href="14"><img src="project4.PNG" alt="Image 4"></a>
+                        <a href="15"><img src="project5.PNG" alt="Image 5"></a>
+                        <!-- <img src="projec.PNG" alt="Image 3">  -->
+                    </div>
+                    <!-- <button class="prev" onclick="changeSlide(-1)"><i class="fa-solid fa-forward fa-rotate-180"></i></button>
+                    <button class="next" onclick="changeSlide(1)"><i class="fa-solid fa-forward"></i></button>
+                </div> -->
+                <!-- <script src="script.js"></script> -->
+               </div>
+            <!-- </div> -->
+     <!-- <div class="btn">
+        <button class="btn" onclick="togglebtn()">For More Details</button>
+    </div> -->
+
+    <div class="all-projects" id="allprojects">
+        
+                   <div class="project1 projects-subcontainer">
+                       <h2>Calculator</h2>
+                       <p> The provided HTML code creates a simple calculator interface with an input field and buttons for arithmetic operations and numbers. Users can perform basic calculations by clicking the numeric buttons and operators.  <br> <strong>The "AC" button: </strong> <br> The "AC" button:
+                           clears the input, and<br> <strong>the "DE" button:</strong>  <br> the "DE" button:
+                            deletes the last character. Lastly, the "=" button calculates the expression using the eval function, providing a basic calculator functionality for users.</p>
+                            <div class="project-img">
+                               <img src="project1.PNG" alt="">
+                            </div>
+       
+                   </div>
+                   <div class="project2 projects-subcontainer"> <h2>Online Birds market</h2>
+                       <p> The purpose of the website described in the HTML code is to provide information and services related to birds. It serves as an online platform to inform users about various aspects of birds, offering details about different bird species, their characteristics, and possibly their conservation. Additionally, the website provides a registration form for users to sign up for bird-related services or updates. It also offers a contact section with email and phone information for users to get in touch. Overall, the website appears to be dedicated to bird enthusiasts and those interested in bird-related content and services.</p>
+                            <div class="project-img">
+                               <img src="project2.PNG" alt="">
+                            </div>
+                           </div>            
+                   <div class="project3 projects-subcontainer">
+                       <h2>Online food ordering services</h2>
+                       <p> The website's primary purpose is to offer online food ordering services, allowing users to browse and order a variety of food options. It also serves as a platform for promoting its services, which include fast food, bulk food orders, and food delivery. The website aims to engage visitors with a welcoming homepage and a call-to-action button, while also focusing on branding and identity through the inclusion of a logo and social media links. Additionally, it provides easy navigation for users to access different sections of the site, such as the homepage, services, about, and contact information.</p>
+                            <div class="project-img">
+                               <img src="project3.PNG" alt="">
+                            </div>
+                   </div>
+                   <div class="project4 projects-subcontainer">
+                       <h2>Registration form for Gym</h2>
+                       <p> The purpose of the website described in the HTML code is to promote and provide information about "Sohail Fitness." It serves as a platform for fitness enthusiasts to learn more about fitness programs and services offered by Sohail Fitness. Users can access the website to get information about fitness registration, including filling out the registration form. The website also provides a brief description of the fitness process and its importance, encouraging visitors to engage in regular physical activity and maintain a balanced diet. Overall, the website aims to attract individuals interested in fitness and encourage them to sign up for fitness programs and services.</p>
+                            <div class="project-img">
+                               <img src="project4.PNG" alt="">
+                            </div>
+                   </div>
+               </div>
+              
+          
+        
+          
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['<i></i> Software-Engineer ', ' Web-Developer ', '&amp; Web-Designer.'],
+            typeSpeed: 90,
+            onComplete: function () {
+                setTimeout(function () {
+                    typed.reset();
+                    typed.start();
+                }, 2000);
+            },
+        });
+
+        // Slider is here
+        let currentSlide = 0;
+const slides = document.querySelectorAll(".slider img");
+const totalSlides = slides.length;
+
+function changeSlide(direction) {
+    currentSlide += direction;
+
+    if (currentSlide < 0) {
+        currentSlide = totalSlides - 1;
+    } else if (currentSlide >= totalSlides) {
+        currentSlide = 0;
+    }
+
+    const offset = -currentSlide * 100;
+    document.querySelector(".slider").style.transform = `translateX(${offset}%)`;
+}
+
+// Auto-advance the slider
+setInterval(function () {
+    changeSlide(1);
+}, 3000); // Change slide every 3 seconds
+
+
+
+
+        //   toggle hide and show  
+
+        // function togglebtn(){
+        //     if(allprojects.style.display!='none'){
+        //         allprojects.style.display='none';
+        //     }
+        //     else{
+        //         allprojects.style.display='block';
+        //     }
+        // }
+
+    </script>
+
+</body>
+
+</html>
